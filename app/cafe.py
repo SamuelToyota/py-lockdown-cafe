@@ -1,5 +1,5 @@
 import datetime
-from app.error import NotVaccinatedError, OutdatedVaccineError, NotWearingMaskError
+from app.errors import NotVaccinatedError, OutdatedVaccineError, NotWearingMaskError
 
 
 class Cafe:
@@ -14,7 +14,7 @@ class Cafe:
         if expiration_date is None:
             raise OutdatedVaccineError(f"{visitor.get('name', 'Visitor')} has no expiration date for the vaccine")
 
-        # Se expiration_date for string, tente converter para datetime.date
+        # Converte string para datetime.date se necessário
         if isinstance(expiration_date, str):
             try:
                 expiration_date = datetime.datetime.strptime(expiration_date, "%Y-%m-%d").date()
