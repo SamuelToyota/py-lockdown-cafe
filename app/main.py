@@ -1,5 +1,5 @@
 from app.cafe import Cafe
-from app.errors import VaccineError, NotWearingMaskError
+from app.error import VaccineError, NotWearingMaskError
 
 def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
     masks_to_buy = 0
